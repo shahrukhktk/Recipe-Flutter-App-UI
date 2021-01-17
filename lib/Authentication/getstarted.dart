@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
+import 'package:recipe/Authentication/login.dart';
 
 class MainAuthScreen extends StatelessWidget {
 
@@ -49,7 +50,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 color: AppColors.accentcolor,
                 textColor: Colors.white,
                 padding: EdgeInsets.all(8.0),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),);
+                },
                 child: Text(
                   "Log In",
                   style: TextStyle(

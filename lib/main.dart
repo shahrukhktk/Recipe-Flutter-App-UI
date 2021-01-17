@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/MainScreens/bottomnav.dart';
 
+import 'Authentication/getstarted.dart';
+
 void main() => runApp(new MaterialApp(
   theme: ThemeData(
     primaryColor: AppColors.themecolor,
@@ -9,5 +11,5 @@ void main() => runApp(new MaterialApp(
     fontFamily: "Roboto",
   ),
   debugShowCheckedModeBanner: false,
-  home: HomeScreen(),
+  home: MainAuthScreen(),
 ));

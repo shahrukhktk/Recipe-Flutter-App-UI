@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-/// This is the main application widget.
+// This is the main application widget.
 class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyStatefulWidget(),
+      home: BottomNavScreen(),
     );
   }
 }
 
 /// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+class BottomNavScreen extends StatefulWidget {
+  BottomNavScreen({Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _BottomNavScreenState createState() => _BottomNavScreenState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _BottomNavScreenState extends State<BottomNavScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_textfield.dart';
+import 'package:recipe/Authentication/AddProfileImage.dart';
 import 'package:recipe/MainScreens/bottomnav.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -101,7 +102,7 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); // It should navigate to Home Screen
+                    MaterialPageRoute(builder: (context) => UploadProfileImageScreen()),); // It should navigate to Home Screen
                 },
                 child: Text(
                   "Sign up",

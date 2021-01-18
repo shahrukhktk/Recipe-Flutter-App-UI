@@ -70,20 +70,25 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
 
           Padding(
             padding: const EdgeInsets.only(top: 50.0),
-            child: Checkbox(value: rememberMe,
-                activeColor: AppColors.accentcolor,
-                onChanged:(bool newValue){
-                  setState(() {
-                    rememberMe = newValue;
-                  });
-                  Text('Agree to terms and conditions', style: TextStyle(
-                      fontFamily: 'Roboto', color: AppColors.accentcolor, fontSize: 14, fontWeight: FontWeight.normal,
-                  ),);
-                }),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Checkbox(value: rememberMe,
+                    activeColor: AppColors.accentcolor,
+                    onChanged:(bool newValue){
+                      setState(() {
+                        rememberMe = newValue;
+                      });
+                    }),
+                Text('Agree to terms and conditions', style: TextStyle(
+                    fontFamily: 'Roboto', color: AppColors.accentcolor, fontSize: 14, fontWeight: FontWeight.normal,
+                  ),),
+              ],
+            ),
           ),
 
           Padding(
-            padding: const EdgeInsets.only(top: 30.0, right: 20, left: 20),
+            padding: const EdgeInsets.only(top: 20.0, right: 20, left: 20),
             child: Center(
               child: FlatButton(
                 height: 48,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/Authentication/login.dart';
+import 'package:recipe/Authentication/signupwithscreen.dart';
 
 class MainAuthScreen extends StatelessWidget {
 
@@ -76,7 +77,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   color: Colors.transparent,
                   textColor: AppColors.accentcolor,
                   padding: EdgeInsets.all(8.0),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignUpOptionPage()),);
+                  },
                   child: Text(
                     "Sign Up",
                     style: TextStyle(

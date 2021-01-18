@@ -51,6 +51,8 @@ flutter:
     - images/background2.png
     - images/ic_facebook.png
     - images/ic_google.png
+    - images/fb_ic.png
+    - images/google_ic.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

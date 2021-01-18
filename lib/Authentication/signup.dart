@@ -29,6 +29,9 @@ class SignupEmailScreen extends StatefulWidget {
 }
 
 class _SignupEmailScreenState extends State<SignupEmailScreen> {
+
+  bool rememberMe = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +69,21 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(top: 50.0, right: 20, left: 20),
+            padding: const EdgeInsets.only(top: 50.0),
+            child: Checkbox(value: rememberMe,
+                activeColor: AppColors.accentcolor,
+                onChanged:(bool newValue){
+                  setState(() {
+                    rememberMe = newValue;
+                  });
+                  Text('Agree to terms and conditions', style: TextStyle(
+                      fontFamily: 'Roboto', color: AppColors.accentcolor, fontSize: 14, fontWeight: FontWeight.normal,
+                  ),);
+                }),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0, right: 20, left: 20),
             child: Center(
               child: FlatButton(
                 height: 48,
@@ -82,27 +99,11 @@ class _SignupEmailScreenState extends State<SignupEmailScreen> {
                     MaterialPageRoute(builder: (context) => HomeScreen()),); // It should navigate to Home Screen
                 },
                 child: Text(
-                  "Log In",
+                  "Sign up",
                   style: TextStyle(
                       fontSize: 16.0, fontFamily: 'Roboto'
                   ),
                 ),
-              ),
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Center(
-              child: GestureDetector(
-                onTap: ()
-                {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); //It should navigate to forgot password screen
-                },
-                child: Text('Forgot your Password?', style: TextStyle(
-                    fontFamily: 'Roboto', color: AppColors.accentcolor, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.underline
-                ),),
               ),
             ),
           ),

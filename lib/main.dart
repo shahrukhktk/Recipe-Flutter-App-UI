@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
+import 'package:recipe/MainScreens/SearchPage.dart';
 import 'package:recipe/MainScreens/bottomnav.dart';
 
 import 'Authentication/getstarted.dart';
@@ -11,5 +12,5 @@ void main() => runApp(new MaterialApp(
     fontFamily: "Roboto",
   ),
   debugShowCheckedModeBanner: false,
-  home: MainAuthScreen(),
+  home: SearchPage(),
 ));

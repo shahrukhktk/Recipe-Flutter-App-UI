@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe/AppAssets/DropDownwidget.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_searchbar.dart';
 
@@ -66,7 +67,7 @@ class _SearchPageScreenState extends State<SearchPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +80,7 @@ class _SearchPageScreenState extends State<SearchPage> {
                         ),
                       ),
 
-
+                      DropDownClass(),
 
                     ],
                   ),
@@ -97,6 +98,9 @@ class _SearchPageScreenState extends State<SearchPage> {
                             fontSize: 17.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.black
                         ),
                       ),
+
+                      DropDownClass(),
+
                     ],
                   ),
                 ),

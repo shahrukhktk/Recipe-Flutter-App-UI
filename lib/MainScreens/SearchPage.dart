@@ -10,6 +10,9 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageScreenState extends State<SearchPage> {
+
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +110,63 @@ class _SearchPageScreenState extends State<SearchPage> {
 
               ],
             ),
+          ),
+
+
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 20, right: 20, bottom: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Order available",
+                  style: TextStyle(
+                      fontSize: 17.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.black
+                  ),
+                ),
+
+                Switch(
+                  value: isSwitched,
+                  onChanged: (value){
+                    setState(() {
+                      isSwitched=value;
+                      print(isSwitched);
+                    });
+                  },
+                  activeTrackColor: AppColors.accentcolor,
+                  activeColor: Colors.white,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "OFF",
+                      style: TextStyle(
+                          fontSize: 12.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.black
+                      ),
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Text(
+                        "ON",
+                        style: TextStyle(
+                            fontSize: 12.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.black
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+
+              ],
+            ),
+          ),
+
+          Divider(
+            color: Colors.black38,
           ),
 
           Padding(

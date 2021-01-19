@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_textfield.dart';
+import 'package:recipe/MainScreens/HomePage.dart';
 import 'package:recipe/MainScreens/bottomnav.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -69,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); // It should navigate to Home Screen
+                    MaterialPageRoute(builder: (context) => HomePage()),); // It should navigate to Home Screen
                 },
                 child: Text(
                   "Log In",
@@ -88,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: ()
                 {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); //It should navigate to forgot password screen
+                    MaterialPageRoute(builder: (context) => MainScreen()),); //It should navigate to forgot password screen
                 },
                 child: Text('Forgot your Password?', style: TextStyle(
                     fontFamily: 'Roboto', color: AppColors.accentcolor, fontSize: 14, fontWeight: FontWeight.normal, decoration: TextDecoration.underline

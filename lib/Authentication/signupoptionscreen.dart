@@ -100,7 +100,7 @@ class _SignUpOptionScreenState extends State<SignUpOptionScreen> {
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); // It should navigate to Home Screen
+                    MaterialPageRoute(builder: (context) => MainScreen()),); // It should navigate to Home Screen
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -139,7 +139,7 @@ class _SignUpOptionScreenState extends State<SignUpOptionScreen> {
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); // It should navigate to Home Screen
+                    MaterialPageRoute(builder: (context) => MainScreen()),); // It should navigate to Home Screen
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/AppAssets/app_assets.dart';
+import 'package:recipe/MainScreens/HomePage.dart';
 
 // This is the main application widget.
-class HomeScreen extends StatelessWidget {
+class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -78,7 +81,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: AppColors.accentcolor,
+        unselectedItemColor: Colors.black54,
         onTap: _onItemTapped,
       ),
     );

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
+import 'package:recipe/MainScreens/HomePage.dart';
 import 'package:recipe/MainScreens/bottomnav.dart';
 
 class UploadProfileImageScreen extends StatefulWidget {
@@ -119,7 +120,7 @@ class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
                 onTap: ()
                 {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),); //It should navigate to forgot password screen
+                    MaterialPageRoute(builder: (context) => HomePage()),); //It should navigate to forgot password screen
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

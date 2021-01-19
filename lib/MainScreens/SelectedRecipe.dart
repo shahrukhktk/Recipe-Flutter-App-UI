@@ -106,7 +106,17 @@ class _SelectedRecipeScreenState extends State<SelectedRecipeScreen> {
 
               ],
             ),
-          )
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Text('View all events', style: TextStyle(
+                  fontFamily: 'Roboto', color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500, decoration: TextDecoration.underline
+              ),),
+            ),
+          ),
+
 
         ],
       ),

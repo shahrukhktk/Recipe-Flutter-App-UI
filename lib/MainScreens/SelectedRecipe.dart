@@ -346,7 +346,38 @@ class _SelectedRecipeScreenState extends State<SelectedRecipeScreen> {
             ),
           ),
 
+          Padding(
+            padding: const EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 10,),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Direction', style: TextStyle(
+                    fontSize: 25.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+                ),),
 
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Text('1. Lorem ipsum dolor sit amet, consectetur adipiscine elit. \n2. Lorem ipsum dolor sit amet, consectetur adipiscine elit. \n3. Lorem ipsum dolor sit amet, consectetur adipiscine elit. \n4. Lorem ipsum dolor sit amet, consectetur adipiscine elit.', style: TextStyle(
+                      fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: Colors.grey, height: 1.5
+                  ),),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 12.0, bottom: 10),
+                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscine elit. Lorem ipsum dolor sit amet, consectetur adipiscine elit. consectetur adipiscine elit. Lorem ipsum dolor sit amet, consectetur adipiscine elit.', style: TextStyle(
+                      fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: Colors.grey, height: 1.2
+                  ),
+                  textAlign: TextAlign.left,),
+                ),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, bottom: 30),
+            child: Center(child: Image(image: AssetImage('images/enjoy_logo.png'),)),
+          ),
 
         ],
       ),

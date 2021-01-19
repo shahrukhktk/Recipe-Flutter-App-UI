@@ -117,6 +117,61 @@ class _SelectedRecipeScreenState extends State<SelectedRecipeScreen> {
             ),
           ),
 
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 20, ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "Cook Time",
+                    style: TextStyle(
+                        fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.black
+                    ),
+                  ),
+                ),
+
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "Level",
+                    style: TextStyle(
+                        fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.black
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 20, ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+
+                CircleAvatar(
+                  backgroundColor: Colors.grey,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 160.0),
+                  child: Text(
+                    "Intermediate",
+                    style: TextStyle(
+                        fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.normal, color: Colors.grey
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+
 
         ],
       ),

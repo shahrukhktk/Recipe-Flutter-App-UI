@@ -56,7 +56,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //button sign up with facebook
+
               Padding(
                 padding: const EdgeInsets.only(top: 15.0, right: 5, left: 20),
                 child: Center(

@@ -199,32 +199,38 @@ class _SearchPageScreenState extends State<SearchPage> {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Center(
-              child: Stack(
-                children: [
-                  Image(image: AssetImage('images/recipe_image.png')),
-                  Positioned(
-                      bottom: 20,
-                      left: 20,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Recipie Title', style: TextStyle(
-                              fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white
-                          ),),
-
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text('1hr 30min | by John Doe', style: TextStyle(
-                                fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: AppColors.themecolor
+          GestureDetector(
+            onTap: ()
+            {
+              //Navigate to selected recipe
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Center(
+                child: Stack(
+                  children: [
+                    Image(image: AssetImage('images/recipe_image.png')),
+                    Positioned(
+                        bottom: 20,
+                        left: 20,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Recipie Title', style: TextStyle(
+                                fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white
                             ),),
-                          ),
-                        ],
-                      ))
-                ],
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text('1hr 30min | by John Doe', style: TextStyle(
+                                  fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: AppColors.themecolor
+                              ),),
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
               ),
             ),
           ),

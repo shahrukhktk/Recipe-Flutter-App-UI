@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_searchbar.dart';
+import 'package:recipe/MainScreens/SelectedRecipe.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -128,62 +129,76 @@ class _HomePageScreenState extends State<HomePageScreen> {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Center(
-              child: Stack(
-                children: [
-                  Image(image: AssetImage('images/recipe_image.png')),
-                  Positioned(
-                      bottom: 20,
-                      left: 20,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Recipie Title', style: TextStyle(
-                            fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white
-                          ),),
-
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text('1hr 30min | by John Doe', style: TextStyle(
-                              fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: AppColors.themecolor
+          GestureDetector(
+            onTap: ()
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SelectedRecipeScreen()),);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Center(
+                child: Stack(
+                  children: [
+                    Image(image: AssetImage('images/recipe_image.png')),
+                    Positioned(
+                        bottom: 20,
+                        left: 20,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Recipie Title', style: TextStyle(
+                              fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white
                             ),),
-                          ),
-                    ],
-                  ))
-                ],
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text('1hr 30min | by John Doe', style: TextStyle(
+                                fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: AppColors.themecolor
+                              ),),
+                            ),
+                      ],
+                    ))
+                  ],
+                ),
               ),
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Center(
-              child: Stack(
-                children: [
-                  Image(image: AssetImage('images/recipe_image.png')),
-                  Positioned(
-                      bottom: 20,
-                      left: 20,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Recipie Title', style: TextStyle(
-                              fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white
-                          ),),
-
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text('1hr 30min | by John Doe', style: TextStyle(
-                                fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: AppColors.themecolor
+          GestureDetector(
+            onTap: ()
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SelectedRecipeScreen()),);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Center(
+                child: Stack(
+                  children: [
+                    Image(image: AssetImage('images/recipe_image.png')),
+                    Positioned(
+                        bottom: 20,
+                        left: 20,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Recipie Title', style: TextStyle(
+                                fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white
                             ),),
-                          ),
-                        ],
-                      ))
-                ],
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text('1hr 30min | by John Doe', style: TextStyle(
+                                  fontSize: 15.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: AppColors.themecolor
+                              ),),
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
               ),
             ),
           ),

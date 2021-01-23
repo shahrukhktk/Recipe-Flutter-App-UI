@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/Authentication/signup.dart';
 import 'package:recipe/Authentication/signupoptionscreen.dart';
+import 'package:recipe/MainScreens/SelectStore.dart';
 
 class SelectedRecipeScreen extends StatefulWidget {
   @override
@@ -90,7 +91,7 @@ class _SelectedRecipeScreenState extends State<SelectedRecipeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Register', style: TextStyle(
+                        Text('Sign Up', style: TextStyle(
                             fontFamily: 'Roboto', color: AppColors.accentcolor, fontSize: 16, fontWeight: FontWeight.w500, decoration: TextDecoration.underline
                         ),),
 
@@ -186,8 +187,8 @@ class _SelectedRecipeScreenState extends State<SelectedRecipeScreen> {
                 textColor: Colors.white,
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
-                  // Navigator.push(context,
-                  //   MaterialPageRoute(builder: (context) => MainScreen()),); // It should navigate to Home Screen
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => StoresScreen()),);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

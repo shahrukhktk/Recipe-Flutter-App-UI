@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/Authentication/signup.dart';
-import 'package:recipe/Authentication/signupoptionscreen.dart';
+import 'package:recipe/AppAssets/custom_cardlist.dart';
 
 class StoresScreen extends StatefulWidget {
   @override
@@ -28,7 +27,7 @@ class _StoresScreenState extends State<StoresScreen> {
         children: [
           
           Padding(
-            padding: const EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 10,),
+            padding: const EdgeInsets.only(top: 20, right: 25, left: 25, bottom: 20,),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,36 +46,35 @@ class _StoresScreenState extends State<StoresScreen> {
             ),
           ),
 
-          Stack(
-            children: [
-
-              Card(
-                elevation: 2,
-                child: Column(
-                  children: [
-
-                    Row(
-                      children: [
-                        Text('Store Name', style: TextStyle(
-                            fontSize: 18.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: Colors.black
-                        ),),
-
-                        Icon(Icons.room_rounded, color: AppColors.themecolor,),
-                        Text('1.3 mi', style: TextStyle(
-                            fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.w400, color: Colors.black
-                        ),),
-
-                      ],
-                    ),
-
-
-
-                  ],
-                ),
-              ),
-              Positioned(top: 20, left: 20, right: 20, bottom: 20,)
-            ],
+          //Stores List
+          GestureDetector(
+            onTap: ()
+            {
+              // Navigator.push(context,
+              //   MaterialPageRoute(builder: (context) => SelectedStoreDetalis()),);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: StoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Delivery and pickup available", mi: "1.3 mi",),
+            ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: StoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Delivery and pickup available", mi: "1.36 mi",),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: StoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Pickup only", mi: "1.34 mi",),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: StoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Delivery and pickup available", mi: "1.37 mi",),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: StoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Delivery and pickup available", mi: "1.37 mi",),
+          ),
+
 
 
         ],

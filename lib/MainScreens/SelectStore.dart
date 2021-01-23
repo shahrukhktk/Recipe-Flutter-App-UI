@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_cardlist.dart';
+import 'package:recipe/MainScreens/SelectedStore.dart';
 
 class StoresScreen extends StatefulWidget {
   @override
@@ -50,8 +51,8 @@ class _StoresScreenState extends State<StoresScreen> {
           GestureDetector(
             onTap: ()
             {
-              // Navigator.push(context,
-              //   MaterialPageRoute(builder: (context) => SelectedStoreDetalis()),);
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SelectedStoresScreen(),));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

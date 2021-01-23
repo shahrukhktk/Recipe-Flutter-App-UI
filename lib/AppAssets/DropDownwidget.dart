@@ -61,3 +61,69 @@ class _DropDownClassState extends State<DropDownClass> {
     );
   }
 }
+
+
+class Servings
+{
+  const Servings(this.servicetype);
+  final String servicetype;
+//  final Icon icon;
+}
+
+class ServicesDropdown extends StatefulWidget {
+  @override
+  _ServicesDropdownState createState() => _ServicesDropdownState();
+}
+
+class _ServicesDropdownState extends State<ServicesDropdown> {
+  @override
+  Widget build(BuildContext context) {
+
+    var selected_services;
+
+    List<Servings> servings = <Servings>[
+      const Servings('1 Serving'),
+      const Servings('2 Serving'),
+      const Servings('3 Serving'),
+      const Servings('4 Serving'),
+      const Servings('5 Serving'),
+    ];
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.white,
+      ),
+      child: DropdownButtonFormField<Servings>(
+        hint:  Text("\t\t\t Service 1 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t", style: TextStyle(
+          fontFamily: 'Roboto',
+          color: AppColors.accentcolor,
+        ),
+        ),
+        decoration: InputDecoration(
+            enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white))),
+        value: selected_services,
+        onChanged: (Servings Value) {
+          setState(() {
+            selected_services = Value;
+          });
+        },
+        items: servings.map((Servings serve) {
+          return  DropdownMenuItem<Servings>(
+            value: serve,
+            child: Row(
+              children: <Widget>[
+                Text(
+                  serve.servicetype,
+                  style:  TextStyle(color: Colors.black),
+                ),
+              ],
+            ),
+          );
+        }).toList(),
+
+      ),
+    );
+  }
+}

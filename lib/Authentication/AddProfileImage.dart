@@ -200,6 +200,7 @@ class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
                 onTap: ()
                 {
                   showDialog(
+                      barrierDismissible: true,
                       context: context,
                       builder: (_) {
                         return AlertDialog(

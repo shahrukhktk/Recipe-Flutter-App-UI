@@ -38,86 +38,78 @@ class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
   @override
   Widget build(BuildContext context) {
 
+    Future<void> _showMyDialog() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, //this means the user must tap a button to exit the Alert Dialog
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Enable the location to see the nearest stores that is available'),
+            actions: <Widget>[
 
+              Padding(
+                padding: const EdgeInsets.only( right: 20, left: 20),
+                child: Center(
+                  child: FlatButton(
+                    height: 48,
+                    minWidth: 280,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                        side: BorderSide(color: AppColors.accentcolor)),
+                    color: AppColors.accentcolor,
+                    textColor: Colors.white,
+                    padding: EdgeInsets.all(8.0),
+                    onPressed: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()),);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Enable location services",
+                        style: TextStyle(
+                            fontSize: 16.0, fontFamily: 'Roboto'
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
-    // AlertDialog alertDialog = AlertDialog(
-    //   insetPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 200),
-    //   title: Padding(
-    //     padding: const EdgeInsets.only(top: 20.0),
-    //     child: Text('Enable the location to see the nearest stores that is available', style: TextStyle(
-    //       fontFamily: 'Roboto', fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.black,
-    //     ),
-    //       textAlign: TextAlign.center,
-    //     ),
-    //   ),
-    //   actions: [
-    //     Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       crossAxisAlignment: CrossAxisAlignment.center,
-    //       children: [
-    //
-    //         Padding(
-    //           padding: const EdgeInsets.only( right: 20, left: 20),
-    //           child: Center(
-    //             child: FlatButton(
-    //               height: 48,
-    //               minWidth: 280,
-    //               shape: RoundedRectangleBorder(
-    //                   borderRadius: BorderRadius.circular(35.0),
-    //                   side: BorderSide(color: AppColors.accentcolor)),
-    //               color: AppColors.accentcolor,
-    //               textColor: Colors.white,
-    //               padding: EdgeInsets.all(8.0),
-    //               onPressed: () {
-    //                 Navigator.push(context,
-    //                   MaterialPageRoute(builder: (context) => HomePage()),);
-    //               },
-    //               child: Padding(
-    //                 padding: const EdgeInsets.all(8.0),
-    //                 child: Text(
-    //                   "Enable location services",
-    //                   style: TextStyle(
-    //                       fontSize: 16.0, fontFamily: 'Roboto'
-    //                   ),
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //         ),
-    //
-    //         Padding(
-    //           padding: const EdgeInsets.only(top: 15.0, right: 20, left: 20),
-    //           child: Center(
-    //             child: FlatButton(
-    //               height: 48,
-    //               minWidth: 280,
-    //               shape: RoundedRectangleBorder(
-    //                   borderRadius: BorderRadius.circular(35.0),
-    //                   side: BorderSide(color: AppColors.accentcolor)),
-    //               color: Colors.transparent,
-    //               textColor: AppColors.accentcolor,
-    //               padding: EdgeInsets.all(8.0),
-    //               onPressed: () {
-    //                 Navigator.push(context,
-    //                   MaterialPageRoute(builder: (context) => HomePage()),);// It should navigate to Home Screen
-    //               },
-    //               child: Padding(
-    //                 padding: const EdgeInsets.all(8.0),
-    //                 child: Text(
-    //                   "or enter your zip code",
-    //                   style: TextStyle(
-    //                       fontSize: 16.0, fontFamily: 'Roboto'
-    //                   ),
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //         ),
-    //
-    //       ],
-    //     ),
-    //   ],
-    //   );
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0, right: 20, left: 20),
+                child: Center(
+                  child: FlatButton(
+                    height: 48,
+                    minWidth: 280,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                        side: BorderSide(color: AppColors.accentcolor)),
+                    color: Colors.transparent,
+                    textColor: AppColors.accentcolor,
+                    padding: EdgeInsets.all(8.0),
+                    onPressed: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()),);// It should navigate to Home Screen
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "or enter your zip code",
+                        style: TextStyle(
+                            fontSize: 16.0, fontFamily: 'Roboto'
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+            ],
+          );
+        },
+      );
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -199,87 +191,88 @@ class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
               child: GestureDetector(
                 onTap: ()
                 {
-                  showDialog(
-                      barrierDismissible: true,
-                      context: context,
-                      builder: (_) {
-                        return AlertDialog(
-                          title: Text('Enable the location to see the nearest stores that is available', style: TextStyle(
-                            fontFamily: 'Roboto', fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.black,
-                          ),
-                            textAlign: TextAlign.center,
-                          ),
-                          actions: [
-                            Padding(
-                              padding: const EdgeInsets.only( right: 20, left: 20),
-                              child: Center(
-                                child: FlatButton(
-                                  height: 48,
-                                  minWidth: 280,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(35.0),
-                                      side: BorderSide(color: AppColors.accentcolor)),
-                                  color: AppColors.accentcolor,
-                                  textColor: Colors.white,
-                                  padding: EdgeInsets.all(8.0),
-                                  onPressed: () {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => HomePage()),);
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Enable location services",
-                                      style: TextStyle(
-                                          fontSize: 16.0, fontFamily: 'Roboto'
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15.0, right: 20, left: 20),
-                              child: Center(
-                                child: FlatButton(
-                                  height: 48,
-                                  minWidth: 280,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(35.0),
-                                      side: BorderSide(color: AppColors.accentcolor)),
-                                  color: Colors.transparent,
-                                  textColor: AppColors.accentcolor,
-                                  padding: EdgeInsets.all(8.0),
-                                  onPressed: () {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => HomePage()),);// It should navigate to Home Screen
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "or enter your zip code",
-                                      style: TextStyle(
-                                          fontSize: 16.0, fontFamily: 'Roboto'
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        );
-                      }).then((exit) {
-                    if (exit == null) return;
-
-                    if (exit) {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()),);
-                    } else {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()),);
-                    }
-                  });
+                  _showMyDialog();
+                  // showDialog(
+                  //     barrierDismissible: true,
+                  //     context: context,
+                  //     builder: (_) {
+                  //       return AlertDialog(
+                  //         title: Text('Enable the location to see the nearest stores that is available', style: TextStyle(
+                  //           fontFamily: 'Roboto', fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.black,
+                  //         ),
+                  //           textAlign: TextAlign.center,
+                  //         ),
+                  //         actions: [
+                  //           Padding(
+                  //             padding: const EdgeInsets.only( right: 20, left: 20),
+                  //             child: Center(
+                  //               child: FlatButton(
+                  //                 height: 48,
+                  //                 minWidth: 280,
+                  //                 shape: RoundedRectangleBorder(
+                  //                     borderRadius: BorderRadius.circular(35.0),
+                  //                     side: BorderSide(color: AppColors.accentcolor)),
+                  //                 color: AppColors.accentcolor,
+                  //                 textColor: Colors.white,
+                  //                 padding: EdgeInsets.all(8.0),
+                  //                 onPressed: () {
+                  //                   Navigator.push(context,
+                  //                     MaterialPageRoute(builder: (context) => HomePage()),);
+                  //                 },
+                  //                 child: Padding(
+                  //                   padding: const EdgeInsets.all(8.0),
+                  //                   child: Text(
+                  //                     "Enable location services",
+                  //                     style: TextStyle(
+                  //                         fontSize: 16.0, fontFamily: 'Roboto'
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ),
+                  //
+                  //           Padding(
+                  //             padding: const EdgeInsets.only(top: 15.0, right: 20, left: 20),
+                  //             child: Center(
+                  //               child: FlatButton(
+                  //                 height: 48,
+                  //                 minWidth: 280,
+                  //                 shape: RoundedRectangleBorder(
+                  //                     borderRadius: BorderRadius.circular(35.0),
+                  //                     side: BorderSide(color: AppColors.accentcolor)),
+                  //                 color: Colors.transparent,
+                  //                 textColor: AppColors.accentcolor,
+                  //                 padding: EdgeInsets.all(8.0),
+                  //                 onPressed: () {
+                  //                   Navigator.push(context,
+                  //                     MaterialPageRoute(builder: (context) => HomePage()),);// It should navigate to Home Screen
+                  //                 },
+                  //                 child: Padding(
+                  //                   padding: const EdgeInsets.all(8.0),
+                  //                   child: Text(
+                  //                     "or enter your zip code",
+                  //                     style: TextStyle(
+                  //                         fontSize: 16.0, fontFamily: 'Roboto'
+                  //                     ),
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ],
+                  //       );
+                  //     }).then((exit) {
+                  //   if (exit == null) return;
+                  //
+                  //   if (exit) {
+                  //     Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => HomePage()),);
+                  //   } else {
+                  //     Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => HomePage()),);
+                  //   }
+                  // });
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

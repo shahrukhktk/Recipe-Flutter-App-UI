@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
+import 'package:recipe/AppAssets/custom_cardlist.dart';
 import 'package:recipe/Authentication/signup.dart';
 import 'package:recipe/Authentication/signupoptionscreen.dart';
 import 'package:recipe/MainScreens/SelectStore.dart';
+import 'package:recipe/MainScreens/SelectStoreToOrder.dart';
+import 'package:recipe/MainScreens/SelectedIngredientStoreScreen.dart';
 
 class SelectedRecipeScreen extends StatefulWidget {
   @override
@@ -331,8 +334,8 @@ class _SelectedRecipeScreenState extends State<SelectedRecipeScreen> {
                 textColor: Colors.white,
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
-                  // Navigator.push(context,
-                  //   MaterialPageRoute(builder: (context) => MainScreen()),); // It should navigate to Home Screen
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SelectStoreToOrderScreen()),);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

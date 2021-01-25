@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_searchbar.dart';
+import 'package:recipe/MainScreens/SearchPage.dart';
 import 'package:recipe/MainScreens/SelectedRecipe.dart';
 
 class HomePage extends StatelessWidget {
@@ -49,9 +50,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
         padding: EdgeInsets.all(15),
         children: [
 
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SearchBarClass(),
+          GestureDetector(
+            onTap: ()
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchPage()),);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SearchBarClass(),
+            ),
           ),
 
           Row(

@@ -168,7 +168,7 @@ class notification_alert extends StatelessWidget {
       leading: Icon(Icons.notifications_none, color: Colors.white,),
       title: Text('$title',
         style: TextStyle(
-            fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white, fontFamily: 'Poppins'
+            fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white, fontFamily: 'Roboto'
         ),
       ),
     );
@@ -189,7 +189,7 @@ class HelpandFeeback extends StatelessWidget {
       leading: Icon(Icons.help_outline, color: Colors.white,),
       title: Text('$title',
         style: TextStyle(
-            fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white, fontFamily: 'Poppins'
+            fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white, fontFamily: 'Roboto'
         ),
       ),
     );
@@ -210,11 +210,39 @@ class returnBtn extends StatelessWidget {
       leading: Image(image: AssetImage('images/ic_return.png'),),
       title: Text('$title',
         style: TextStyle(
-            fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white, fontFamily: 'Poppins'
+            fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white, fontFamily: 'Roboto'
         ),
       ),
     );
     return notify;
+  }
+}
+
+
+class IngredientsList extends StatelessWidget {
+
+  final String title, subtitle;
+
+  const IngredientsList({Key key, this.title, this.subtitle}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    final ingredientslist = ListTile(
+      leading: Image(image: AssetImage('images/image.png'),),
+      title: Text('$title',
+        style: TextStyle(
+            fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.black, fontFamily: 'Roboto'
+        ),
+      ),
+      subtitle: Text('$subtitle',
+        style: TextStyle(
+            fontSize: 16.0, fontWeight: FontWeight.normal, color: Colors.grey, fontFamily: 'Roboto'
+        ),
+      ),
+      trailing: Icon(Icons.add_circle_outline_sharp, color: AppColors.accentcolor,),
+    );
+    return ingredientslist;
   }
 }
 

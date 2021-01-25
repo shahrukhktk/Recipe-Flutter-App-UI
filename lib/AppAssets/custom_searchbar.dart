@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
+import 'package:recipe/MainScreens/SearchPage.dart';
 
 class SearchBarClass extends StatelessWidget {
   @override
@@ -28,7 +29,10 @@ class SearchBarClass extends StatelessWidget {
                 Icons.search,
                 color: AppColors.accentcolor,
               ),
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchPage()),);
+              },
             ),
           ],
         ),

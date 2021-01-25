@@ -16,6 +16,84 @@ class _SelectedStoresScreenState extends State<SelectedStoresScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    AlertDialog alertDialog = AlertDialog(
+      insetPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 200),
+      title: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: Text('Select delivery or pickup', style: TextStyle(
+          fontFamily: 'Roboto', fontSize: 18.0, fontWeight: FontWeight.normal, color: Colors.black,
+        ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+      content: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          Padding(
+            padding: const EdgeInsets.only( right: 20, left: 20),
+            child: Center(
+              child: FlatButton(
+                height: 48,
+                minWidth: 280,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(35.0),
+                    side: BorderSide(color: AppColors.accentcolor)),
+                color: AppColors.accentcolor,
+                textColor: Colors.white,
+                padding: EdgeInsets.all(8.0),
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OrderPlacedScreen()),);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Delivery",
+                    style: TextStyle(
+                        fontSize: 16.0, fontFamily: 'Roboto'
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, right: 20, left: 20),
+            child: Center(
+              child: FlatButton(
+                height: 48,
+                minWidth: 280,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(35.0),
+                    side: BorderSide(color: AppColors.accentcolor)),
+                color: Colors.transparent,
+                textColor: AppColors.accentcolor,
+                padding: EdgeInsets.all(8.0),
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OrderPlacedScreen()),);// It should navigate to Home Screen
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Pickup",
+                    style: TextStyle(
+                        fontSize: 16.0, fontFamily: 'Roboto'
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+        ],
+      ),
+    );
+
     return Scaffold(
       backgroundColor: AppColors.whitelight,
       appBar: AppBar(
@@ -252,8 +330,7 @@ class _SelectedStoresScreenState extends State<SelectedStoresScreen> {
                 textColor: Colors.white,
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => OrderPlacedScreen()),);
+                  showDialog(context: context,  builder: (_) => alertDialog);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

@@ -1,9 +1,7 @@
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/MainScreens/HomePage.dart';
+import 'package:recipe/appassets/app_assets.dart';
+import 'package:recipe/mainscreen/homepage.dart';
 
 class UploadProfileImageScreen extends StatefulWidget {
 
@@ -13,27 +11,27 @@ class UploadProfileImageScreen extends StatefulWidget {
 
 class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
 
-  File _image;
-
-  _imgFromCamera() async {
-    File image = (await ImagePicker.pickImage(
-        source: ImageSource.camera, imageQuality: 50
-    )) as File;
-
-    setState(() {
-      _image = image;
-    });
-  }
-
-  _imgFromGallery() async {
-    File image = (await  ImagePicker.pickImage(
-        source: ImageSource.gallery, imageQuality: 50
-    )) as File;
-
-    setState(() {
-      _image = image;
-    });
-  }
+  // File _image;
+  //
+  // _imgFromCamera() async {
+  //   File image = (await ImagePicker.pickImage(
+  //       source: ImageSource.camera, imageQuality: 50
+  //   )) as File;
+  //
+  //   setState(() {
+  //     _image = image;
+  //   });
+  // }
+  //
+  // _imgFromGallery() async {
+  //   File image = (await  ImagePicker.pickImage(
+  //       source: ImageSource.gallery, imageQuality: 50
+  //   )) as File;
+  //
+  //   setState(() {
+  //     _image = image;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -157,21 +155,21 @@ class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    _showPicker(context);
+                    // _showPicker(context);
                   },
                     child: CircleAvatar(
                       radius: 75,
                       backgroundColor: AppColors.accentcolor,
-                      child: _image != null
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(75),
-                          child: Image.file(
-                            _image,
-                            width: 160,
-                            height: 160,
-                            fit: BoxFit.fitHeight,
-                          ),
-                      ) : Container(
+                      // child: _image != null
+                      // ? ClipRRect(
+                      //     borderRadius: BorderRadius.circular(75),
+                      //     child: Image.file(
+                      //       _image,
+                      //       width: 160,
+                      //       height: 160,
+                      //       fit: BoxFit.fitHeight,
+                      //     ),
+                      child: Container(
                         decoration: BoxDecoration(
                             color: Colors.grey[200], borderRadius: BorderRadius.circular(75)),
                         width: 150, height: 150,
@@ -298,35 +296,35 @@ class _UploadProfileImageScreenState extends State<UploadProfileImageScreen> {
     );
   }
 
-  void _showPicker(context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return SafeArea(
-            child: Container(
-              child: new Wrap(
-                children: <Widget>[
-                  new ListTile(
-                      leading: new Icon(Icons.photo_library),
-                      title: new Text('Photo Library'),
-                      onTap: () {
-                        _imgFromGallery();
-                        Navigator.of(context).pop();
-                      }),
-                  new ListTile(
-                    leading: new Icon(Icons.photo_camera),
-                    title: new Text('Camera'),
-                    onTap: () {
-                      _imgFromCamera();
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-          );
-        }
-    );
-  }
+  // void _showPicker(context) {
+  //   showModalBottomSheet(
+  //       context: context,
+  //       builder: (BuildContext bc) {
+  //         return SafeArea(
+  //           child: Container(
+  //             child: new Wrap(
+  //               children: <Widget>[
+  //                 new ListTile(
+  //                     leading: new Icon(Icons.photo_library),
+  //                     title: new Text('Photo Library'),
+  //                     onTap: () {
+  //                       _imgFromGallery();
+  //                       Navigator.of(context).pop();
+  //                     }),
+  //                 new ListTile(
+  //                   leading: new Icon(Icons.photo_camera),
+  //                   title: new Text('Camera'),
+  //                   onTap: () {
+  //                     _imgFromCamera();
+  //                     Navigator.of(context).pop();
+  //                   },
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         );
+  //       }
+  //   );
+  // }
 
 }

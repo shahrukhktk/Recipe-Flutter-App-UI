@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_textfield.dart';
-import 'package:recipe/Authentication/AddProfileImage.dart';
-import 'package:recipe/MainScreens/bottomnav.dart';
+import 'package:recipe/authenticationscreen/addprofile_image.dart';
 
 class SignupScreen extends StatelessWidget {
 

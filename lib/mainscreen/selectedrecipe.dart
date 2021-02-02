@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/AppAssets/custom_cardlist.dart';
-import 'package:recipe/Authentication/signup.dart';
-import 'package:recipe/Authentication/signupoptionscreen.dart';
-import 'package:recipe/MainScreens/SelectStore.dart';
-import 'package:recipe/MainScreens/SelectStoreToOrder.dart';
-import 'package:recipe/MainScreens/SelectedIngredientStoreScreen.dart';
+import 'package:recipe/appassets/app_assets.dart';
+import 'package:recipe/mainscreen/selectstore.dart';
+import 'package:recipe/mainscreen/selectstoretoorder.dart';
+import 'package:recipe/mainscreen/selectedingredientstorescreen.dart';
+import 'package:recipe/authenticationscreen/signupoptionscreen.dart';
 
 class SelectedRecipeScreen extends StatefulWidget {
   @override

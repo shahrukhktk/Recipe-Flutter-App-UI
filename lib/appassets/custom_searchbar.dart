@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/MainScreens/SearchPage.dart';
+import 'package:recipe/appassets/app_assets.dart';
+import 'package:recipe/mainscreen/searchpage.dart';
 
 class SearchBarClass extends StatelessWidget {
   @override

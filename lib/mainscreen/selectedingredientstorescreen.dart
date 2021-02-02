@@ -1,95 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/DropDownwidget.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_cardlist.dart';
+import 'package:recipe/AppAssets/custom_listtile.dart';
+import 'orderplacedscreen.dart';
 
-import 'OrderPlacedScreen.dart';
+class SelectedIngredientStoresScreen extends StatefulWidget {
 
-class SelectedStoresScreen extends StatefulWidget {
+  final int initNumber;
+  final Function(int) counterCallback;
+  final Function increaseCallback;
+  final Function decreaseCallback;
+  SelectedIngredientStoresScreen({this.initNumber, this.counterCallback, this.increaseCallback, this.decreaseCallback});
+
   @override
-  _SelectedStoresScreenState createState() => _SelectedStoresScreenState();
+  _SelectedIngredientStoresScreenState createState() => _SelectedIngredientStoresScreenState();
 }
 
-class _SelectedStoresScreenState extends State<SelectedStoresScreen> {
+class _SelectedIngredientStoresScreenState extends State<SelectedIngredientStoresScreen> {
+
+  int _currentCount;
+  Function _counterCallback;
+  Function _increaseCallback;
+  Function _decreaseCallback;
+
+  @override
+  void initState() {
+    _currentCount = widget.initNumber ?? 1;
+    _counterCallback = widget.counterCallback ?? (int number) {};
+    _increaseCallback = widget.increaseCallback ?? () {};
+    _decreaseCallback = widget.decreaseCallback ?? () {};
+    super.initState();
+  }
 
   double dollars = 15.65;
 
   @override
   Widget build(BuildContext context) {
-
-    Future<void> _showMyDialog() async {
-      return showDialog<void>(
-        context: context,
-        barrierDismissible: false, //this means the user must tap a button to exit the Alert Dialog
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Select delivery or pickup'),
-            actions: <Widget>[
-
-              Padding(
-                padding: const EdgeInsets.only( right: 20, left: 20),
-                child: Center(
-                  child: FlatButton(
-                    height: 48,
-                    minWidth: 280,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(35.0),
-                        side: BorderSide(color: AppColors.accentcolor)),
-                    color: AppColors.accentcolor,
-                    textColor: Colors.white,
-                    padding: EdgeInsets.all(8.0),
-                    onPressed: () {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => OrderPlacedScreen()),);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Delivery",
-                        style: TextStyle(
-                            fontSize: 16.0, fontFamily: 'Roboto'
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0, right: 20, left: 20),
-                child: Center(
-                  child: FlatButton(
-                    height: 48,
-                    minWidth: 280,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(35.0),
-                        side: BorderSide(color: AppColors.accentcolor)),
-                    color: Colors.transparent,
-                    textColor: AppColors.accentcolor,
-                    padding: EdgeInsets.all(8.0),
-                    onPressed: () {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => OrderPlacedScreen()),);// It should navigate to Home Screen
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Pickup",
-                        style: TextStyle(
-                            fontSize: 16.0, fontFamily: 'Roboto'
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
-            ],
-          );
-        },
-      );
-    }
-
     return Scaffold(
       backgroundColor: AppColors.whitelight,
       appBar: AppBar(
@@ -122,70 +68,148 @@ class _SelectedStoresScreenState extends State<SelectedStoresScreen> {
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SelectedStoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Change Store", mi: "1.3 mi",),
+              child: SelectedIngredientStoreDetails(storename: "Store Name", subtitle: "123 Abc Drive, \nLetter, MD, 21234", deliveryaddress: "Delivery", mi: "1.3 mi",),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, left: 20, right: 20),
+            child: Text('Selected Ingredients', style: TextStyle(
+                fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+            ),),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+
+                Text('Servings', style: TextStyle(
+                    fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+                ),),
+
+                Text('Total Price', style: TextStyle(
+                    fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+                ),),
+
+              ],
             ),
           ),
 
           Padding(
             padding: const EdgeInsets.only(top: 15.0, left: 20, right: 20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Store Selected', style: TextStyle(
-                    fontSize: 18.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
-                ),),
 
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Icon(Icons.info_outline, color: Colors.black87,),
-                )
+                //Counter
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: _createIncrementDicrementButton(Icons.remove, () => _dicrement()),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(_currentCount.toString()),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: _createIncrementDicrementButton(Icons.add, () => _increment()),
+                    ),
+                  ],
+                ),
+
+                Text("\$$dollars", style: TextStyle(
+                    fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+                ),),
 
               ],
             ),
           ),
 
           Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 80, top: 15, bottom: 15),
-            child: ServicesDropdown(),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20,),
-            child: Text("\$$dollars", style: TextStyle(
+            padding: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
+            child: Text('Ingredients', style: TextStyle(
                 fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
             ),),
           ),
 
           Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20,),
-            child: Text("Price", style: TextStyle(
-                fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+            padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20, bottom: 10),
+            child: Text('3 ingredients are unavailable', style: TextStyle(
+                fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.red
             ),),
           ),
 
           Padding(
-            padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20, bottom: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Address', style: TextStyle(
-                    fontSize: 25.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
-                ),),
+
+                Icon(Icons.add_circle_outline_sharp, color: AppColors.accentcolor,),
 
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Icon(Icons.info_outline, color: Colors.black87,),
-                )
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Text('Add all', style: TextStyle(
+                      fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: AppColors.accentcolor
+                  ),),
+                ),
 
               ],
             ),
           ),
 
+          Divider(color: Colors.grey, thickness: 1,),
+
+          //Ingredient List Items
           Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20,),
-            child: Text("Address selected", style: TextStyle(
+            padding: const EdgeInsets.only(top: 20.0, left: 10, right: 10),
+            child: IngredientsList(title: "Ingredient One / Item Name", subtitle: "\$5.99",),
+          ),
+
+          Divider(color: Colors.grey, thickness: 1,),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 10, right: 10),
+            child: IngredientsList(title: "Ingredient Two / Item Name", subtitle: "\$5.99",),
+          ),
+
+          Divider(color: Colors.grey, thickness: 1,),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 10, right: 10),
+            child: IngredientsList(title: "Ingredient Three / Item Name", subtitle: "\$5.99",),
+          ),
+
+          Divider(color: Colors.grey, thickness: 1,),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 10, right: 10),
+            child: IngredientsList(title: "Ingredient Four / Item Name", subtitle: "\$5.99",),
+          ),
+
+          Divider(color: Colors.grey, thickness: 1,),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
+            child: Text('Address', style: TextStyle(
                 fontSize: 20.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
             ),),
           ),
 
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20, bottom: 10),
+            child: Text('Address Selected', style: TextStyle(
+                fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black
+            ),),
+          ),
 
           Padding(
             padding: const EdgeInsets.only(top: 20.0, bottom: 10),
@@ -326,7 +350,8 @@ class _SelectedStoresScreenState extends State<SelectedStoresScreen> {
                 textColor: Colors.white,
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {
-                  _showMyDialog();
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OrderPlacedScreen()),);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -376,4 +401,43 @@ class _SelectedStoresScreenState extends State<SelectedStoresScreen> {
       ),
     );
   }
+
+  void _increment() {
+    setState(() {
+      _currentCount++;
+      _counterCallback(_currentCount);
+      _increaseCallback();
+    });
+  }
+
+  void _dicrement() {
+    setState(() {
+      if (_currentCount > 1) {
+        _currentCount--;
+        _counterCallback(_currentCount);
+        _decreaseCallback();
+      }
+    });
+  }
+
+  Widget _createIncrementDicrementButton(IconData icon, Function onPressed) {
+    return RawMaterialButton(
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      constraints: BoxConstraints(minWidth: 35.0, minHeight: 35.0),
+      onPressed: onPressed,
+      elevation: 2.0,
+      fillColor: Colors.white,
+      child: Icon(
+        icon,
+        color: Colors.black,
+        size: 15.0,
+      ),
+      shape: BeveledRectangleBorder(),
+    );
+  }
+
+
 }
+
+
+

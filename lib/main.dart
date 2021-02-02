@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/Authentication/getstarted.dart';
-import 'MainScreens/SelectedRecipe.dart';
+import 'authenticationscreen/getstarted.dart';
 
 void main() => runApp(new MaterialApp(
   theme: ThemeData(

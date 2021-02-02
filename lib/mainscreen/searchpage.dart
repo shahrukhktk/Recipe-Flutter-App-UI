@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/DropDownwidget.dart';
+import 'package:recipe/AppAssets/dropdown_widget.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
 import 'package:recipe/AppAssets/custom_searchbar.dart';
-import 'SelectedRecipe.dart';
+import 'selectedrecipe.dart';
 
 class SearchPage extends StatefulWidget {
   @override

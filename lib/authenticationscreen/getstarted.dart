@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/Authentication/login.dart';
-import 'package:recipe/Authentication/signupoptionscreen.dart';
+import 'package:recipe/authenticationscreen/login.dart';
+import 'package:recipe/authenticationscreen/signupoptionscreen.dart';
 
 class MainAuthScreen extends StatelessWidget {
 

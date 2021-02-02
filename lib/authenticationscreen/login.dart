@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/AppAssets/custom_textfield.dart';
-import 'package:recipe/MainScreens/HomePage.dart';
-import 'package:recipe/MainScreens/bottomnav.dart';
+import 'package:recipe/appassets/app_assets.dart';
+import 'package:recipe/appassets/custom_textfield.dart';
+import 'package:recipe/mainscreen/bottomnav.dart';
+import 'package:recipe/mainscreen/homepage.dart';
+
 
 class LoginScreen extends StatelessWidget {
 

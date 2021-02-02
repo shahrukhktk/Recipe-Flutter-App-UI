@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/DropDownwidget.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/AppAssets/custom_cardlist.dart';
-import 'package:recipe/MainScreens/HomePage.dart';
-import 'package:recipe/MainScreens/SelectStoreToOrder.dart';
+import 'package:recipe/appassets/app_assets.dart';
+import 'package:recipe/mainscreen/homepage.dart';
 
 class OrderPlacedScreen extends StatefulWidget {
   @override

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/MainScreens/HomePage.dart';
+import 'package:recipe/appassets/app_assets.dart';
 
 // This is the main application widget.
 class MainScreen extends StatelessWidget {

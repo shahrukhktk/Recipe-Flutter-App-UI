@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/AppAssets/custom_textfield.dart';
-import 'package:recipe/Authentication/signup.dart';
-import 'package:recipe/MainScreens/bottomnav.dart';
+import 'package:recipe/authenticationscreen/signup.dart';
+import 'package:recipe/mainscreen/bottomnav.dart';
 
 class SignUpOptionPage extends StatelessWidget {
 

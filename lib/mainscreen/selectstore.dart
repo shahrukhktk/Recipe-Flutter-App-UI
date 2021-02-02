@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/AppAssets/app_assets.dart';
-import 'package:recipe/AppAssets/custom_cardlist.dart';
-import 'package:recipe/MainScreens/SelectedStore.dart';
+import 'package:recipe/appassets/app_assets.dart';
+import 'package:recipe/appassets/custom_cardlist.dart';
+import 'package:recipe/mainscreen/selectedstore.dart';
 
 class StoresScreen extends StatefulWidget {
   @override
